@@ -24,8 +24,11 @@ import java.util.concurrent.TimeUnit;
 public class product_search extends BaseClass {
     String actual_message;
     String note_id;
+    String actual_note ;
     String user_email;
     String actual_email;
+     String base_url = "https://www.evernote.com/";
+
     JavascriptExecutor js = (JavascriptExecutor) driver;
     WebDriverWait wait = new WebDriverWait(driver, 30);
 
@@ -41,6 +44,7 @@ public class product_search extends BaseClass {
 
     @Given("^User clicks on already have account$")
     public void User_clicks_on_already_have_account() {
+        driver.get(base_url);
         action.click_element(element.already_account_element());
     }
 
@@ -67,7 +71,7 @@ public class product_search extends BaseClass {
             Assert.assertTrue(actual_message.contains(expected_message));
         } else if (expected_message.equalsIgnoreCase("bilalroshan5@gmail.com")) {
             System.out.println("executing validation for Valid login");
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
             actual_email = element.account_email().getText();
             System.out.println("logged in user confirmation email is " + actual_email);
             Assert.assertEquals(actual_email, expected_message);
@@ -87,41 +91,52 @@ public class product_search extends BaseClass {
         driver.switchTo().frame(frame1);
         System.out.println("switched to default o frame");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        note_id = note_title + Math.random();
-        action.enter_text(element.title_area(),note_id );
+        note_id = note_title +(Math.random());
+        System.out.println("note title is "+note_id);
+        action.enter_text(element.title_area(), note_id);
+        actual_note = note_id;
         driver.switchTo().parentFrame();
     }
 
     @Then("^User clicks logout$")
     public void User_clicks_logout() {
 
-       // action.click_element(element.nav_home());
+        // action.click_element(element.nav_home());
         action.click_element(element.account_email());
         action.click_element(element.sign_out());
 
         try {
             action.click_element(element.confirm_logout());
-        }catch (Exception e){
-          e.getMessage();
+        } catch (Exception e) {
+            e.getMessage();
         }
-        System.out.println( "logout completed");
+        System.out.println("logout completed");
 
     }
 
 
-    @When("^User searches for existing_note$")
+    @Then("^User searches for existing_note$")
     public void User_searches_for_existing_note() {
+
+        System.out.println("initiated search");
         List<WebElement> list = new ArrayList<>();
-        list = driver.findElements(By.xpath("//div[@class='Fuix_q8N7ezroVVJ104t']/div/span"));
-
-
+        list = driver.findElements(By.xpath("//div[@class='Fuix_q8N7ezroVVJ104t']/div/span[1]"));
+        System.out.println("length of titles list is"+list.size());
         for (WebElement itr : list) {
-            if(itr.getText().equalsIgnoreCase(note_id)){
-                WebElement reopen_note = driver.findElement(By.xpath("//div[@class='Fuix_q8N7ezroVVJ104t']/div/span[contains(text(),'"+note_id+"')]"));
-                action.click_element(reopen_note);
+            System.out.println( "text value is"+itr.getText());
+              if ((itr.getText().equalsIgnoreCase(actual_note))){
+                  System.out.println(itr.getText());
+              }
+              else{
+                  Assert.assertTrue(false);
+                  System.out.println("condition failed");
+            }
+
             }
         }
     }
 
 
-}
+
+
+

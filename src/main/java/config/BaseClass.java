@@ -29,9 +29,11 @@ public class BaseClass {
 
 			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir") +"\\drivers\\chromedriver");
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
 			ChromeOptions option = new ChromeOptions();
 			option.addArguments("incognito");
+			option.setHeadless(true);
+			driver = new ChromeDriver();
+
 
 
 		}

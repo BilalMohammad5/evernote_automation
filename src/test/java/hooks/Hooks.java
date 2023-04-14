@@ -33,6 +33,7 @@ public class Hooks extends BaseClass {
     public static void before(Scenario sc) {
 
         System.out.println("launching url for a new test execution");
+
         driver.get(base_url);
         System.out.println("Scenario"+ "\t"+sc.getName()+"execution started");
     }
@@ -40,14 +41,15 @@ public class Hooks extends BaseClass {
     @After
     public static void after(Scenario sc) throws IOException {
 
-        System.out.println("Scenario"+"\t"+"execution status is"+sc.getStatus());
+        System.out.println("Scenario" + "\t" + "execution status is" + sc.getStatus());
 
-        if(sc.isFailed()){
+        if (sc.isFailed()) {
             TakesScreenshot ts = (TakesScreenshot) driver;
             byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
-            sc.attach(screenshot,"image/png","attach screenshot");
+            sc.attach(screenshot, "image/png", "attach screenshot");
         }
-        driver.manage().deleteAllCookies();
+       driver.manage().deleteAllCookies();
+
     }
     @AfterAll
     public static void after_all() {
