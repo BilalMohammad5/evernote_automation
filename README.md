@@ -2,6 +2,8 @@ This is a Meaven project built using Selenium -JAVA, It is integrated with Cucum
 ## Test Execution Flow
 Framework contains below folders
 
+*Refer to the framework flow png file located in the root folder to understand the architecture.
+
 
 *src/main/java* - Holds all the configuration files
 
