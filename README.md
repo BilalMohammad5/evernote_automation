@@ -38,13 +38,20 @@ this is implemented using the maven surefire   plugin
 
 
 ##  Test Reporting
+
 Post-test execution framework generates HTML files under the reports folder located in the root directory.
+
+Ideally reports should be excluded from commit to code repo. For the assignment purpose i have removed them from gitignore file.
+
 
 * HTML Reports can be opened using any browser.
 * Screenshots attached to reports upon failure
 * archived_reports folder contains some of the previous execution reports for reference
 ## Dependency_management
 As this project is built using Maven, dependencies are managed using the pom.xml file
+
+Ideally heavy dependencies should be excluded from commit to code repo.
+For the assignment purpose i have removed them from gitignore file.
 ## Author
 Name - Roshan Mohammad Bilal
 
