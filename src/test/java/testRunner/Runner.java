@@ -12,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
 
 		features="src/test/java/features",
 		glue= {"step_definitions","hooks"},
-		tags = "@note_operation",
+		tags = "@smoke",
 		plugin = { "pretty","html:reports/cucumber_test_reports.html"} //json, can also be added here
 )
 

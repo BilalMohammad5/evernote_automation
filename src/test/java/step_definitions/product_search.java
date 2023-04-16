@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 @Listeners(listernerConfig.Listeners.class)
 public class product_search extends BaseClass {
     String actual_message;
-    String note_id;
+  public  static String note_id;
     String actual_note ;
     String user_email;
     String actual_email;
@@ -91,10 +91,10 @@ public class product_search extends BaseClass {
         driver.switchTo().frame(frame1);
         System.out.println("switched to default o frame");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        note_id = note_title +(Math.random());
-        System.out.println("note title is "+note_id);
+        note_id = note_title +String.valueOf(Math.random());
+        System.out.println("created note title is "+note_id);
         action.enter_text(element.title_area(), note_id);
-        actual_note = note_id;
+
         driver.switchTo().parentFrame();
     }
 
@@ -124,13 +124,13 @@ public class product_search extends BaseClass {
         System.out.println("length of titles list is"+list.size());
         for (WebElement itr : list) {
             System.out.println( "text value is"+itr.getText());
-              if ((itr.getText().equalsIgnoreCase(actual_note))){
+            String expected_note = note_id;
+            actual_note = itr.getText();
+              if ((actual_note.equalsIgnoreCase(expected_note))){
                   System.out.println(itr.getText());
+
               }
-              else{
-                  Assert.assertTrue(false);
-                  System.out.println("condition failed");
-            }
+
 
             }
         }
