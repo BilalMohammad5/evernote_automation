@@ -23,7 +23,7 @@ Feature: Product features
       | bilalroshan5@gmail.com | User@1234 | bilalroshan5@gmail.com |
 
   @note_operation @smoke @TC3
-  Scenario Outline: write a note
+  Scenario Outline: creating a new note in ever note
     Given User clicks on already have account
     When User logs into evernote application using <email> and <password>
     And User clicks login
@@ -36,7 +36,7 @@ Feature: Product features
       | bilalroshan5@gmail.com | User@1234 | bilalroshan5@gmail.com | video_slots |
 
   @existing_note @smoke @note_operation
-  Scenario Outline: open  a existing note
+  Scenario Outline: opening previously created note
     Given User clicks on already have account
     When User logs into evernote application using <email> and <password>
     And User clicks login

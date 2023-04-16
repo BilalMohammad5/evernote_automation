@@ -23,6 +23,7 @@ public class PageObject extends BaseClass {
 
 
 
+
     public PageObject(WebDriver driver) {
         // TODO Auto-generated constructor stub
         this.driver = driver;  // assigning driver instance from Launch class to local instance
@@ -48,6 +49,7 @@ public class PageObject extends BaseClass {
         return driver.findElement(password);
 
     }
+
     public WebElement confirm_logout() {
 
         return driver.findElement(confirm_logout);

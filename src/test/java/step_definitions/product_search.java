@@ -87,7 +87,7 @@ public class product_search extends BaseClass {
     }
 
     @And("^User enters data into title as ([^\"]*)$")
-    public void user_enters_data_into_title(String note_title) {
+    public void user_enters_data_into_title(String note_title) throws InterruptedException {
         WebElement frame1 = driver.findElement(By.xpath("//iframe[@id='qa-COMMON_EDITOR_IFRAME']"));
         driver.switchTo().frame(frame1);
         System.out.println("switched to default o frame");
@@ -97,7 +97,7 @@ public class product_search extends BaseClass {
         action.enter_text(element.title_area(), note_id);
 
         driver.switchTo().parentFrame();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        Thread.sleep(5000);
         System.out.println( "waiting to save changes");
     }
 
@@ -128,10 +128,13 @@ public class product_search extends BaseClass {
         System.out.println("length of titles list is"+list.size());
         for (WebElement itr : list) {
             System.out.println( "text value is"+itr.getText());
+
             String expected_note = note_id;
+            System.out.println( "User must open the note with id"+"\t"+note_id);
             actual_note = itr.getText();
               if ((actual_note.equalsIgnoreCase(expected_note))){
-                  System.out.println("good to click");
+                  action.click_element(driver.findElement(By.xpath("//div[@class='Fuix_q8N7ezroVVJ104t']/div/span[1][contains(text(),'"+actual_note+"')]")));
+                  System.out.println( "previous created note opened with note id"+actual_note);
                        break;
               }else{
                   j++;
