@@ -26,7 +26,6 @@ public class Hooks extends BaseClass {
     public static void before_all() {
 
         driver.manage().window().maximize();
-        System.out.println("Maximising browser window");
 
     }
     @Before()

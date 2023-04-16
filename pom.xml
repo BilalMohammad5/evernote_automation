@@ -121,7 +121,7 @@
   
   <profiles>
   <profile>
-  <id>smoke</id>
+  <id>cucumber</id>
   <build>
    <resources>
       <resource>

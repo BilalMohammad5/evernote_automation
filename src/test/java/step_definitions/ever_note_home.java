@@ -3,25 +3,18 @@ package step_definitions;
 import Helper.Helper;
 import config.BaseClass;
 import config.PageObject;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-@Listeners(listernerConfig.Listeners.class)
-public class product_search extends BaseClass {
+public class ever_note_home extends BaseClass {
     String actual_message;
   public  static String note_id;
     public  static int j;
@@ -38,7 +31,7 @@ public class product_search extends BaseClass {
     PageObject element = new PageObject(driver); // Creating Page Object reference
     Helper action = new Helper(driver); // Creating helper class Object reference
 
-    public product_search() throws SQLException, IOException, ClassNotFoundException {
+    public ever_note_home() throws SQLException, IOException, ClassNotFoundException {
     }
 
     //step definitions for evernote features

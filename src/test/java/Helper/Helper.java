@@ -57,16 +57,7 @@ public class Helper extends BaseClass {
             js.executeScript("document." + element + "[0].value= " + text + ""); //trying to enter text using js executor
         }
     }
-    public void element_visibility(WebElement element) {
-       try{
-           System.out.println("validating visibility");
-           WebDriverWait wait = new WebDriverWait(driver, 20);
-           wait.until(ExpectedConditions.visibilityOf(element));
-    }catch (Throwable e) {
-           System.out.println("visibility failed");
-           e.getMessage();
-       }
-    }
+
 
 
 }

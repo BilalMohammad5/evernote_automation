@@ -7,7 +7,7 @@
 
   <test name="Test">
     <classes>
-      <class name="step_definitions.product_search"/>
+      <class name="step_definitions.ever_note_home"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

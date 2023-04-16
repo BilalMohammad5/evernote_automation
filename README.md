@@ -1,77 +1,57 @@
-
-# Selenium -Cucumber Custom Framework 
-
-This is a Meaven project built using Selenium -JAVA, It is integrated with cucumber for writing feature files and execution of test cases
-
-
+This is a Meaven project built using Selenium -JAVA, It is integrated with Cucumber for writing feature files and execution of test cases
 ## Test Execution Flow
-Framework mainly has 2 folder
-
-* src/main/java - Holds all the configuration files 
-
-* /config - driver and browser management
-
-* src/test/java - contains test scripting and execution files 
-
-* /features - contains all the features files written in the gherkin language
-
-* /Helper  - contains reusable methods to perform repeated actions
-
-* /hooks - Contains @Before @After etc annotations to modify test execution Flow
-
-* /stepdefinitions contains actual steps for features
+Framework contains below folders
 
 
+*src/main/java* - Holds all the configuration files
 
-## Initiating Driver
-The compatible chrome driver is placed in/driver folder located in the project directory
+*config* - driver and browser management
 
-* chromedriver.exe must be executed in the command line and be made sure that the selenium server is up and running.
-* This driver will  work for Chrome 
-Version 110.0.5481.178 (Official Build) (64-bit)
+*src/test/java* - contains test scripting and execution files
 
-* You will be able to see the below message in the terminal.
+*features* - contains all the features files written in the gherkin language
 
-* Starting ChromeDriver 110.0.5481.77 
-* ChromeDriver was started successfully.
+*Helper* - contains reusable methods to perform repeated actions
 
+*hooks* - Contains @Before @After etc annotations to modify test execution Flow
 
+*stepdefinitions* contains actual steps for features
 ## Test Execution
-Open the project using any IDE - Intellij Preferred. 
 
-* Test Execution using the runner file --------------
-Tests can be triggered by running the test runner files located at src/main/java/testRunner/Runner
+* Tests can be executed in 3 ways 
 
-* This will run all the tests and generate html reports along with screenshots upon test failure
+### *Execution Using a Runner File*
 
-* Execute using the cucumber.xml file located in the root folder.
-## Test Reporting
+ * Test Execution using the runner file
+ located at src/main/java/testRunner/Runner
 
-Post test execution framework generates html files under /reports   folder located in current directory.
+ * tags can be changed to alter the Execution
+ the default that is @smoke
 
-* Reports can be opened using any browser.
-* Screenshots attacted to reports upon failure
-* current director/archive_reports conatins some of the previous execution reports for reference 
+### *Execution Using Cucumber.xml*
+ * Right-click on the cucumber.xml file located in the working directory
+
+### *Using  command line*
+* At the root of the project directory run the command:  mvn test -P cucumber
+
+this is implemented using the maven surefire   plugin
 
 
-## Dependency_management 
+##  Test Reporting
+Post-test execution framework generates HTML files under the reports folder located in the root directory.
 
-As this project is built using Maven,
-dependencies are managed using the pom.xml file
-## git branches
-
-There are 2 brnaches in this repo.
-* Main
-* Feature
-* Most of the development done in feature branch and later merged with main
-* .git ignore file -  As  good practice heavier files must be exceluded but intentionally /driver / reports are not excluded
-
+* HTML Reports can be opened using any browser.
+* Screenshots attached to reports upon failure
+* archived_reports folder contains some of the previous execution reports for reference
+## Dependency_management
+As this project is built using Maven, dependencies are managed using the pom.xml file
 ## Author
-* Name - Bilal Mohammad
-* Linkedin - https://www.linkedin.com/in/bilal-mohammad-552b0b159/
+Name - Roshan Mohammad Bilal
 
-* Email - BILALROSHAN5@GMAIL.COM
+Linkedin - https://www.linkedin.com/in/roshan-m-bilal-552b0b159/
 
-* Please reach out to me by email if you have any queries related to this project.
+Email - BILALROSHAN5@GMAIL.COM
 
-                             -- Good Day.
+Please reach out to me by email if you have any queries related to this project.
+
+                       -- Have a Good Day.
