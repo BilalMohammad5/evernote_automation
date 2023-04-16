@@ -24,6 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class product_search extends BaseClass {
     String actual_message;
   public  static String note_id;
+    public  static int j;
     String actual_note ;
     String user_email;
     String actual_email;
@@ -96,16 +97,19 @@ public class product_search extends BaseClass {
         action.enter_text(element.title_area(), note_id);
 
         driver.switchTo().parentFrame();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        System.out.println( "waiting to save changes");
     }
 
     @Then("^User clicks logout$")
     public void User_clicks_logout() {
 
-        // action.click_element(element.nav_home());
+
         action.click_element(element.account_email());
         action.click_element(element.sign_out());
 
         try {
+
             action.click_element(element.confirm_logout());
         } catch (Exception e) {
             e.getMessage();
@@ -127,9 +131,16 @@ public class product_search extends BaseClass {
             String expected_note = note_id;
             actual_note = itr.getText();
               if ((actual_note.equalsIgnoreCase(expected_note))){
-                  System.out.println(itr.getText());
-
+                  System.out.println("good to click");
+                       break;
+              }else{
+                  j++;
+                  if (j>=list.size()){
+                      Assert.assertTrue(false);
+                  }
               }
+
+
 
 
             }
