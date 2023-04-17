@@ -10,6 +10,7 @@ Feature: Product features
       | email                  | password | message            |
       | bilalroshan5@gmail.com | ######   | Incorrect password |
 
+
   @smoke @TC_2  @login
   Scenario Outline: ever note valid user login scenario
     Given User clicks on already have account
@@ -41,7 +42,8 @@ Feature: Product features
     When User logs into evernote application using <email> and <password>
     And User clicks login
     And User must see message as <message>
-    Then User searches for existing_note
+    And User searches for existing_note
+    Then User clicks logout
     Examples:
       | email                  | password  | message                |
       | bilalroshan5@gmail.com | User@1234 | bilalroshan5@gmail.com |

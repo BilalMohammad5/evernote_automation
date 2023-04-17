@@ -112,7 +112,7 @@ public class ever_note_home extends BaseClass {
     }
 
 
-    @Then("^User searches for existing_note$")
+    @And("^User searches for existing_note$")
     public void User_searches_for_existing_note() {
 
         System.out.println("initiated search");
